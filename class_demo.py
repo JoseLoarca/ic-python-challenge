@@ -26,3 +26,34 @@ class Felidae:
         :return:
         """
         raise NotImplementedError
+
+
+class Cat(Felidae):
+
+    def __init__(self, name, color, fav_food, fav_toy, species='cat'):
+        super(Cat, self).__init__(name, species, color)
+        self.fav_food = fav_food
+        self.fav_toy = fav_toy
+
+    @classmethod
+    def from_string(cls, string):
+        """
+        Create a new Cat object from a string
+        :param string: the string with the information of the cat
+        :return:
+        """
+        name, color, fav_food, fav_toy = string.split(',')
+        return cls(name, color, fav_food, fav_toy)
+
+    def get_info(self):
+        """
+        Return a string with the information of the cat
+        :return: a string with the information of the cat
+        """
+        return "This Felidae is a {} named {}. It's fur is {}. " \
+               "Want to win it's heart? " \
+               "Bring some {} and a new {}.".format(self.species,
+                                                    self.name,
+                                                    self.color,
+                                                    self.fav_food,
+                                                    self.fav_toy)
