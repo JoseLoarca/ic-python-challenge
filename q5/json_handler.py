@@ -10,7 +10,7 @@ def claim_reader(file_name='claim.json'):
     :return: None
     """
     # Read the JSON file
-    with open('claim.json', 'r') as f:
+    with open(file_name, 'r') as f:
         data = json.load(f)
 
         # Get the payee ID
